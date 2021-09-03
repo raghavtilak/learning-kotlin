@@ -26,6 +26,11 @@ fun main(args: Array<String>) {
         a+b
     })
     println(sum)
+
+    println("Addition: "+ addition(2,3))
+    //storing functions in variable
+    val fn=::message
+    fn("Afternoon")
 }
 
 //DECLARING FUNCTIONS
@@ -59,4 +64,14 @@ fun name(first: String = "Raghav", last: String = "Sharma"){
 // '->' means the return type of the passed function
 fun operation(a:Int,b:Int,operate : (Int,Int)->Int) :Int {
     return operate(a,b)
+}
+
+
+//FUNCTION OVERLOADING
+fun addition(a:Int,b:Int): Int {
+    return a+b   
+}
+
+fun addition(a:Double,b:Double): Double {
+    return a+b
 }

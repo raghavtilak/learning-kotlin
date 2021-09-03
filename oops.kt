@@ -24,6 +24,10 @@ fun main(args: Array<String>) {
     Singleton.changeNum(5)
 
     println("Sinngle value: ${Singleton.num}")
+
+    val car:Vehicle=Vehicle("Petrol",3)
+    if(car.hasAirBags)
+        println("Car has airBags!!")
 }
 
 //normal class
@@ -46,13 +50,29 @@ object Singleton{
     var num:Int=95
     //init is basically a type of ctor
     //executes everytime an instance of class is created
+
+    //we can have multiple 'init()' blocks
     init{
         println("Singleton class invoked")
+    }
+
+    init{
+        println("Singleton class invoked init block 2")
     }
 
     fun changeNum(n:Int){
         num =n
     }
 }
+
+//Class with SECONDARY PARAM
+class Vehicle(val type:String, val km:Int,val maxSeating:Int,val hasAirBags:Boolean){
+
+    //secondary constructor
+    //NOTE: whenever you call secondary constructor, we have to mandatorily call
+    //the primary constructor too
+    constructor(type:String,km:Int):this(type,km,4,true)
+}
+
 
 
